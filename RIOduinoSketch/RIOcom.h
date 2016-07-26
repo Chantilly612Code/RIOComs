@@ -4,7 +4,7 @@
 #include <Arduino.h>
 #include <Wire.h>
 
-struct RIOComCallbackResult
+struct RIOcomCallbackResult
 {
   short length;
   byte data[];

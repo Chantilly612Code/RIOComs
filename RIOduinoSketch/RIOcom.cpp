@@ -1,6 +1,6 @@
 #include "RIOcom.h"
 
-typedef void(*callback_t)(void);
+typedef RIOcomCallbackResult*(*callback_t)(void);
 
 namespace RIOcom
 {
@@ -16,14 +16,14 @@ namespace RIOcom
             Serial.println("Too many callbacks! Skipping!");
           else
           {
-            reg[maxIndex] = reg;
-            callback[maxIndex] = callback;
+            regarr[maxIndex] = reg;
+            callbackarr[maxIndex] = callback;
             maxIndex++;
           }
         }
       private:
-        byte reg[16];
-        callback_t callback[16];
+        byte regarr[16];
+        callback_t callbackarr[16];
         int maxIndex = 0;
     };
     
